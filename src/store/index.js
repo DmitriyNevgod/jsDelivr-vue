@@ -24,7 +24,7 @@ export default new Vuex.Store({
   },
   actions: {
     getPackageList({ commit }, { name, limit, offset }) {
-      const url = `http://registry.npmjs.com/-/v1/search?text=${name}&size=${limit}&from=${offset ? offset : 0}`;
+      const url = `https://registry.npmjs.com/-/v1/search?text=${name}&size=${limit}&from=${offset ? offset : 0}`;
       axios.get(url).then((res) => {
         commit('setSearchList', res.data.objects)
       }).catch(e => {
